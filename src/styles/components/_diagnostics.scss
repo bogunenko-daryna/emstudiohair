@@ -24,6 +24,11 @@
   @media (max-width: 900px) {
     grid-template-columns: 1fr;
   }
+
+  @media (max-width: 800px) {
+    padding: 0 1.5rem 5rem;
+    gap: 40px;
+  }
 }
 
 .diagnosticsMedia {
@@ -46,8 +51,13 @@
 
 .diagnosticsContent h2 {
   font-family: "Didot", serif;
-  font-size: 42px;
+  font-size: 2.5rem;
   letter-spacing: 0.08em;
+  margin-bottom: 20px;
+
+  @media (max-width: 600px) {
+    font-size: 1.8rem;
+  }
 }
 
 .diagnosticsBadge {

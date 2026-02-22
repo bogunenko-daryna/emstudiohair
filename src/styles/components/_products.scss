@@ -5,6 +5,10 @@
   padding: 100px 1.5rem 5rem;
   isolation: isolate;
 
+  @media (max-width: 800px) {
+    padding: 0 1.5rem 5rem;
+  }
+
   &::before {
     content: "";
     position: absolute;
@@ -28,6 +32,10 @@
   max-width: fit-content;
   position: relative;
   padding-inline-start: 5rem;
+
+  @media (max-width: 800px) {
+    padding-inline-start: 0;
+  }
 }
 
 .productsKicker {
@@ -50,11 +58,15 @@
 
 .productsTitle {
   font-family: "Didot", "Playfair Display", serif;
-  font-size: clamp(34px, 4vw, 56px);
+  font-size: 2.5rem;
   font-weight: 500;
   letter-spacing: 0.05em;
   margin: 14px 0 12px;
   color: rgba(243, 234, 215, 0.92); // béžová, ne čistě bílá
+
+  @media (max-width: 800px) {
+    font-size: 1.8rem;
+  }
 }
 
 .productsIntro {
@@ -121,6 +133,7 @@
   border-radius: $radius;
   overflow: hidden;
   border: 1px solid $border;
+  height: fit-content;
 
   img {
     width: 100%;
