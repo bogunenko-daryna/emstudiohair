@@ -1,0 +1,24 @@
+@use "../base" as *;
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: $radius-sm;
+  border: 1px solid $border;
+  text-decoration: none;
+  color: $text;
+  background: $surface-2;
+  transition: 160ms ease;
+
+  &:hover { transform: translateY(-1px); border-color: rgba(198,161,91,0.35); }
+}
+
+.btn--primary {
+  border-color: rgba(198,161,91,0.45);
+  background: linear-gradient(135deg, rgba(198,161,91,0.22), rgba(255,255,255,0.04));
+}
+
+.btn--ghost { background: transparent; }

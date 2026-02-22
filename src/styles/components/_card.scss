@@ -1,0 +1,16 @@
+@use "../base" as *;
+
+.card {
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: $radius;
+  box-shadow: $shadow;
+}
+
+.pad { padding: 18px; }
+
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(198,161,91,0.45), transparent);
+  margin: 14px 0;
+}

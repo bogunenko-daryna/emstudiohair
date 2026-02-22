@@ -1,0 +1,82 @@
+@use "../base" as *;
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  backdrop-filter: blur(14px);
+  background: rgba(11, 11, 13, 0.68);
+  border-bottom: 1px solid $border;
+  padding: 0 1.5rem;
+}
+
+.logo {
+  width: 9rem;
+  height: auto;
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  .mark {
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
+    border: 1px solid $border;
+    background: linear-gradient(
+      135deg,
+      rgba(198, 161, 91, 0.22),
+      rgba(255, 255, 255, 0.05)
+    );
+    display: grid;
+    place-items: center;
+    color: $accent-2;
+    font-weight: 900;
+  }
+
+  .name {
+    font-weight: 800;
+    letter-spacing: 0.2px;
+  }
+  .sub {
+    color: $muted;
+    font-size: 12px;
+    margin-top: 2px;
+  }
+}
+
+.nav {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+
+  .nav-link {
+    text-decoration: none;
+    color: $muted;
+    padding: 9px 12px;
+    border-radius: $radius-sm;
+    border: 1px solid transparent;
+    transition: 160ms ease;
+
+    &:hover {
+      color: $text;
+      border-color: $border;
+      background: rgba(255, 255, 255, 0.03);
+    }
+    &.active {
+      color: $text;
+      border-color: rgba(198, 161, 91, 0.35);
+      background: rgba(198, 161, 91, 0.08);
+    }
+  }
+}

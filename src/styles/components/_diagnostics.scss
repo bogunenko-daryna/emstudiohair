@@ -1,0 +1,70 @@
+@use "../base" as *;
+
+.diagnosticsSection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  padding: 140px 1.5rem 5rem;
+  position: relative;
+  isolation: isolate;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: radial-gradient(
+      900px 600px at 10% 40%,
+      rgba(198, 161, 91, 0.12),
+      transparent 60%
+    );
+  }
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.diagnosticsMedia {
+  position: relative;
+  overflow: hidden;
+  border-radius: 24px;
+}
+
+.diagnosticsMedia::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(198, 161, 91, 0.15), rgba(0, 0, 0, 0.5));
+}
+
+.diagnosticsMedia img {
+  width: 100%;
+  display: block;
+}
+
+.diagnosticsContent h2 {
+  font-family: "Didot", serif;
+  font-size: 42px;
+  letter-spacing: 0.08em;
+}
+
+.diagnosticsBadge {
+  display: inline-block;
+  margin-bottom: 18px;
+
+  font-size: 12px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+
+  color: rgba(198, 161, 91, 0.95);
+
+  padding: 8px 18px;
+  border-radius: 999px;
+
+  background: rgba(198, 161, 91, 0.08);
+  border: 1px solid rgba(198, 161, 91, 0.35);
+
+  backdrop-filter: blur(4px);
+}

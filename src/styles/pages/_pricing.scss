@@ -1,0 +1,183 @@
+@use "../base" as *;
+
+.pricingPage {
+  display: grid;
+  gap: 54px;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+/* hero nahoře – trochu víc “wow”, ale pořád minimal */
+
+.pricingHero__bg {
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -40px -20px -10px -20px;
+    z-index: -1;
+    background: radial-gradient(
+        900px 520px at 50% -5%,
+        rgba(198, 161, 91, 0.16),
+        transparent 33%
+      ),
+      radial-gradient(
+        700px 520px at 30% 80%,
+        rgba(255, 230, 190, 0.06),
+        transparent 57%
+      );
+    pointer-events: none;
+  }
+}
+.pricingHero {
+  position: relative;
+  isolation: isolate;
+  padding: 34px 0 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.pricingHero__kicker {
+  color: rgba(198, 161, 91, 0.92);
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.pricingHero__title {
+  font-family: "Didot", "Playfair Display", serif;
+  font-size: clamp(34px, 4vw, 56px);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  margin: 12px 0 10px;
+  color: rgba(243, 234, 215, 0.92);
+}
+
+.pricingHero__intro {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.8;
+  text-wrap: balance;
+  max-width: 30rem;
+  text-align: center;
+}
+
+.pricingHero__meta {
+  margin-top: 18px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.pricingGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+
+  @media (max-width: 980px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.priceCard {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: $radius;
+  box-shadow: $shadow;
+  padding: 18px;
+  display: grid;
+  gap: 14px;
+  position: relative;
+  overflow: hidden;
+}
+
+.priceCard__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.priceCard__title {
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.priceCard__badge {
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(198, 161, 91, 0.35);
+  background: rgba(198, 161, 91, 0.08);
+  color: rgba(243, 234, 215, 0.92);
+  font-weight: 700;
+}
+
+.priceCard__rows {
+  display: grid;
+  gap: 10px;
+}
+
+.priceRow {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 14px;
+  align-items: baseline;
+  padding: 10px 10px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.priceRow__name {
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.5;
+}
+
+.priceRow__price {
+  color: rgba(243, 234, 215, 0.92);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+/* jemné zvýraznění “Head Spa/Tricho” */
+.priceCard--featured {
+  border-color: rgba(198, 161, 91, 0.28);
+  background: radial-gradient(
+      900px 520px at 80% 0%,
+      rgba(198, 161, 91, 0.12),
+      transparent 60%
+    ),
+    rgba(255, 255, 255, 0.03);
+}
+
+.priceCard__note {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 13px;
+}
+
+.dotGold {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(198, 161, 91, 0.95);
+  box-shadow: 0 0 0 4px rgba(198, 161, 91, 0.12);
+}
+
+.pricingFineprint__title {
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.82);
+  margin-bottom: 10px;
+}

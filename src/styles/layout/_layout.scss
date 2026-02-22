@@ -1,0 +1,86 @@
+@use "../base" as *;
+
+.container {
+  width: min($container, calc(100% - 2 * $gutter));
+  margin: 0 auto;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.page {
+  flex: 1;
+}
+
+.stack {
+  display: grid;
+  gap: 18px;
+}
+.row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.grid2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+.grid3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.muted {
+  color: $muted;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.table th,
+.table td {
+  padding: 12px 10px;
+  border-bottom: 1px solid $border;
+}
+.table th {
+  text-align: left;
+  color: $muted;
+  font-weight: 700;
+}
+.right {
+  text-align: right;
+}
+
+@media (max-width: 860px) {
+  .grid2,
+  .grid3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.section-gold {
+  position: relative;
+  isolation: isolate;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    background: radial-gradient(
+      800px 500px at 20% 0%,
+      rgba(198, 161, 91, 0.12),
+      transparent 60%
+    );
+
+    pointer-events: none;
+  }
+}
