@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000" height="1000"><g clip-path="url(#SvgjsClipPath1701)"><rect width="1000" height="1000" fill="#090808"></rect><g transform="matrix(0.5833333333333334,0,0,0.5833333333333334,150,266.66666666666663)"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="800"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
+
+  <defs>
+    <!-- Luxury champagne gold gradient -->
+    <linearGradient id="goldLuxury" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f9f1df"></stop>
+      <stop offset="20%" stop-color="#e8d3a5"></stop>
+      <stop offset="45%" stop-color="#c6a15b"></stop>
+      <stop offset="55%" stop-color="#d8b97a"></stop>
+      <stop offset="80%" stop-color="#e8d3a5"></stop>
+      <stop offset="100%" stop-color="#f9f1df"></stop>
+    </linearGradient>
+
+    <style>
+      .monogram {
+        font-family: "Playfair Display", "Didot", "Bodoni MT", serif;
+        font-size: 600px;
+        font-weight: 600;
+        fill: #e8e6e3;
+        letter-spacing: -20px;
+      }
+
+      .subtitle {
+        font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+        font-size: 64px;
+        letter-spacing: 18px;
+        fill: url(#goldLuxury);
+        font-weight: 600;
+      }
+    </style>
+  <clipPath id="SvgjsClipPath1701"><rect width="1000" height="1000" x="0" y="0" rx="350" ry="350"></rect></clipPath></defs>
+
+  <!-- Monogram -->
+  <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" class="monogram">
+    EM
+  </text>
+
+  <!-- Subtitle -->
+  <text x="50%" y="70%" text-anchor="middle" dominant-baseline="middle" class="subtitle">
+    HAIR STUDIO
+  </text>
+
+</svg></svg></g></g></svg>
