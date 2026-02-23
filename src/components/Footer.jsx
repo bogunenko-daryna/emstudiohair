@@ -4,7 +4,9 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="container footer-inner">
-        <div>© {new Date().getFullYear()} Ester Studio Hair</div>
+        <div className="footer__info">
+          © {new Date().getFullYear()} Ester Studio Hair
+        </div>
         <a href="tel:+420777774906" className="muted">
           Objednávky: +420 777 774 906
         </a>

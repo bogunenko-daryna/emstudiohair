@@ -11,6 +11,29 @@
   justify-content: space-between;
   align-items: center;
   padding: 18px 0;
-  gap: 12px;
   flex-wrap: wrap;
+  width: 100%;
+  @media (max-width: 420px) {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+.footer .muted {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  margin: 0;
+
+  @media (max-width: 420px) {
+    display: flex;
+    order: 1;
+  }
+}
+
+.footer__info {
+  @media (max-width: 420px) {
+    display: flex;
+    order: 2;
+  }
 }
