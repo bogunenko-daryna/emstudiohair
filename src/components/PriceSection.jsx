@@ -49,8 +49,8 @@ export default function PriceSection() {
           <a className="btn btn--primary" href="/kontakt">
             Objednat se
           </a>
-          <a className="btn btn--ghost" href="tel:+420777123456">
-            +420 777 123 456
+          <a className="btn btn--ghost" href="tel:+420777774906">
+            +420 777 774 906
           </a>
         </div>
       </header>

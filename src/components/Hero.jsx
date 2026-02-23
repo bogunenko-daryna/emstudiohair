@@ -19,7 +19,7 @@ export default function Hero() {
         </div>
 
         <div className="heroSplit__cta">
-          <a className="btn btn--primary" href="tel:+420777123456">
+          <a className="btn btn--primary" href="tel:+420777774906">
             Objednat se
           </a>
           <Link className="btn btn--ghost" to="/cenik">
