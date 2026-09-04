@@ -1,0 +1,9 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# SPA rewrites and response headers live in public/_redirects and public/_headers.
+# Vite copies both files into the publish directory during every build.

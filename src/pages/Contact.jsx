@@ -1,23 +1,25 @@
 import React from "react";
+import { copy, useLanguage } from "../i18n.jsx";
 
 export default function Contact() {
+  const language = useLanguage();
+  const t = copy[language].contact;
+  const emailHref = language === "en"
+    ? "mailto:mahurskaester@gmail.com?subject=Appointment%20request&body=Hello,%0D%0A%0D%0AI%20would%20like%20to%20book..."
+    : "mailto:mahurskaester@gmail.com?subject=Rezervace%20term%C3%ADnu&body=Dobr%C3%BD%20den,%0D%0A%0D%0AR%C3%A1da%20bych%20se%20objednala%20na...";
   return (
     <div className="contactPage">
       <header className="contactHero">
-        <div className="productsKicker">Contact</div>
-        <h1 className="contactHero__title">Kontakt</h1>
-        <p className="contactHero__intro">
-          <p className="contactHero__intro">
-            Kontakt je začátek proměny. Ozvěte se — zbytek necháte na mně.
-          </p>
-        </p>
+        <div className="productsKicker">{t.kicker}</div>
+        <h1 className="contactHero__title">{t.title}</h1>
+        <p className="contactHero__intro">{t.intro}</p>
       </header>
 
       <section className="contactGrid">
         {/* MAP */}
         <div className="mapCard mapCard--boutique">
           <iframe
-            title="Mapa salonu"
+            title={t.mapTitle}
             src="https://www.google.com/maps?q=Bo%C5%99ivojova+718/84,+Praha+3&output=embed"
             loading="lazy"
           />
@@ -27,7 +29,7 @@ export default function Contact() {
         {/* INFO */}
         <div className="contactCards">
           <div className="infoCard">
-            <div className="infoCard__label">Adresa</div>
+            <div className="infoCard__label">{t.address}</div>
             <div className="infoCard__value">
               Bořivojova 718/84
               <br />
@@ -38,17 +40,17 @@ export default function Contact() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  Otevřít v mapách
+                  {t.maps}
                 </a>
               </div>
             </div>
           </div>
 
           <div className="infoCard">
-            <div className="infoCard__label">Telefon</div>
+            <div className="infoCard__label">{t.phone}</div>
             <div className="infoCard__value">
               <a href="tel:+420777774906">+420 777 774 906</a>
-              <div className="muted">Preferuji SMS / WhatsApp</div>
+              <div className="muted">{t.phoneNote}</div>
             </div>
           </div>
 
@@ -58,7 +60,7 @@ export default function Contact() {
               <a href="mailto:mahurskaester@gmail.com">
                 mahurskaester@gmail.com
               </a>
-              <div className="muted">Odpovídám do 24 hodin</div>
+              <div className="muted">{t.response}</div>
             </div>
           </div>
 
@@ -72,19 +74,19 @@ export default function Contact() {
               >
                 @ester.studio.hair
               </a>
-              <div className="muted">Napište mi do DM</div>
+              <div className="muted">{t.dm}</div>
             </div>
           </div>
 
           <div className="contactCta">
             <a className="btn btn--primary" href="tel:+420777774906">
-              Zavolat
+              {t.call}
             </a>
             <a
               className="btn btn--ghost"
-              href="mailto:mahurskaester@gmail.com?subject=Rezervace%20term%C3%ADnu&body=Dobr%C3%BD%20den,%0D%0A%0D%0AR%C3%A1da%20bych%20se%20objednala%20na..."
+              href={emailHref}
             >
-              Napsat e-mail
+              {t.email}
             </a>
             <a
               className="btn btn--ghost"
@@ -97,8 +99,7 @@ export default function Contact() {
           </div>
 
           <div className="contactNote">
-            Pokud chcete, pošlete mi do zprávy přibližnou délku vlasů a co si
-            přejete (střih / barva / péče).
+            {t.note}
           </div>
         </div>
       </section>

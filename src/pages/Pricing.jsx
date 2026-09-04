@@ -1,54 +1,19 @@
 import React from "react";
-
-const groups = [
-  {
-    title: "Hair Services",
-    items: [
-      { name: "Dámský střih + foukání", price: "1000 Kč" },
-      { name: "Pánský střih + foukání", price: "650 Kč" },
-      { name: "Foukání", price: "600 Kč" },
-      { name: "Děvčata do 10 let", price: "550 Kč" },
-      { name: "Chlapci do 10 let", price: "450 Kč" },
-      { name: "Společenský účes + zkouška", price: "1500–2500 Kč" },
-    ],
-  },
-  {
-    title: "Color Services",
-    items: [
-      { name: "Barvení odrostů", price: "1400 Kč" },
-      { name: "Částečný melír", price: "1000–2500 Kč" },
-      { name: "Melír", price: "2900 Kč" },
-      { name: "Nová barva", price: "1900 Kč" },
-      { name: "Toner / Péče", price: "400–800 Kč" },
-    ],
-  },
-  {
-    title: "Head Spa / Tricho",
-    featured: true,
-    items: [
-      { name: "Trichologické vyšetření", price: "750 Kč" },
-      {
-        name: "Čištění vlasů MALIBU C + tricho vyšetření",
-        price: "1300–1700 Kč",
-      },
-    ],
-  },
-];
+import { Link } from "react-router-dom";
+import { copy, localizedPath, services, useLanguage } from "../i18n.jsx";
 
 export default function Pricing() {
+  const language = useLanguage();
+  const t = copy[language].pricing;
+  const groups = services[language];
   return (
     <section className="pricingPage">
       <header className="pricingHero">
-        <h1 className="pricingHero__title">Ceník</h1>
-        <p className="pricingHero__intro">
-          Finální cena se může lišit dle délky a hustoty vlasů. Pro přesnou
-          nabídku mi napište nebo zavolejte.
-        </p>
+        <h1 className="pricingHero__title">{t.title}</h1>
+        <p className="pricingHero__intro">{t.intro}</p>
 
         <div className="pricingHero__meta">
-          <a className="btn btn--primary" href="/kontakt">
-            Objednat se
-          </a>
+          <Link className="btn btn--primary" to={localizedPath(language, "/contact")}>{t.book}</Link>
           <a className="btn btn--ghost" href="tel:+420777774906">
             +420 777 774 906
           </a>
@@ -64,22 +29,22 @@ export default function Pricing() {
             <div className="priceCard__head">
               <div className="priceCard__title">{g.title}</div>
               {g.featured && (
-                <div className="priceCard__badge">Special care</div>
+                <div className="priceCard__badge">{t.badge}</div>
               )}
             </div>
 
             <div className="priceCard__rows">
               {g.items.map((it) => (
-                <div className="priceRow" key={it.name}>
-                  <div className="priceRow__name">{it.name}</div>
-                  <div className="priceRow__price">{it.price}</div>
+                <div className="priceRow" key={it[0]}>
+                  <div className="priceRow__name">{it[0]}</div>
+                  <div className="priceRow__price">{it[1]}</div>
                 </div>
               ))}
             </div>
 
             <div className="priceCard__note">
               <span className="dotGold" />
-              <span>Ceny dle ceníku.</span>
+              <span>{t.note}</span>
             </div>
           </article>
         ))}
@@ -87,11 +52,8 @@ export default function Pricing() {
 
       <section className="pricingFineprint">
         <div className="card pad">
-          <div className="pricingFineprint__title">Poznámka</div>
-          <p>
-            U melírů/zesvětlení a společenských účesů se cena odvíjí od
-            náročnosti a času. Doporučuji konzultaci předem.
-          </p>
+          <div className="pricingFineprint__title">{t.fineTitle}</div>
+          <p>{t.fine}</p>
         </div>
       </section>
     </section>

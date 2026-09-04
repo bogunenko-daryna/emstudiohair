@@ -2,30 +2,28 @@ import React, { useMemo, useRef, useState } from "react";
 
 import imageMalibu from "../images/malibu.webp";
 import imageKevin from "../images/kevin.jpg";
+import { Link } from "react-router-dom";
+import { copy, localizedPath, useLanguage } from "../i18n.jsx";
 
 export default function ProductsSection() {
+  const language = useLanguage();
+  const t = copy[language];
   const slides = useMemo(
     () => [
       {
         title: "MALIBU C",
         image: imageMalibu,
-        alt: "Malibu C produkty",
-        text: [
-          "Malibu C díky své inovativní patentované technologii účinně bojuje proti negativním účinkům minerálů obsažených v tvrdé vodě, které se mohou hromadit na vlasech i vlasové pokožce. Vlivem toho jsou vlasy suché, ztrácí lesk a lámají se, a pokožka hlavy je podrážděná.",
-          "Produkty Malibu C tyto nánosy odstraňují, a vlasy tak získají zpět svou přirozenou měkkost, lesk a zdravý vzhled. Veškeré produkty neobsahují parabeny, sulfáty a silikony. Netestováno na zvířatech.",
-        ],
+        alt: "Malibu C hair products",
+        text: t.productTexts[0],
       },
       {
         title: "KEVIN MURPHY",
         image: imageKevin,
-        alt: "Kevin Murphy produkty",
-        text: [
-          "Kevin Murphy je australská značka vlasové péče, která se specializuje na ekologicky šetrné produkty pro úpravu a péči o vlasy. Všechny produkty jsou bez sulfátů a parabenů a jsou vyrobeny z rostlin a esenciálních olejů, které pochází z přírodních zdrojů nebo jsou pěstovány organickým způsobem a sklizeny ekologickou technikou přirozené sklizně.",
-          "Barvy Kevin Murphy Color.Me neobsahují PPD ani amoniak, ale jsou plné přírodních látek, jako je například bambucké máslo, med nebo granátové jablko. Díky těmto látkám nejsou vlasy dehydrované a neztrácejí lesk.",
-        ],
+        alt: "Kevin Murphy hair products",
+        text: t.productTexts[1],
       },
     ],
-    []
+    [t]
   );
 
   const [index, setIndex] = useState(0);
@@ -49,12 +47,9 @@ export default function ProductsSection() {
   return (
     <section className="productsSlider">
       <div className="productsHeader">
-        <div className="productsKicker">Products</div>
-        <h2 className="productsTitle">Produkty, kterým věřím</h2>
-        <p className="productsIntro">
-          Pracuji s profesionální kosmetikou, která respektuje přirozenost vlasů
-          a podporuje jejich zdraví.
-        </p>
+        <div className="productsKicker">{t.products[0]}</div>
+        <h2 className="productsTitle">{t.products[1]}</h2>
+        <p className="productsIntro">{t.products[2]}</p>
       </div>
 
       <div className="slider">
@@ -62,7 +57,7 @@ export default function ProductsSection() {
           className="sliderBtn"
           type="button"
           onClick={prev}
-          aria-label="Předchozí"
+          aria-label={t.products[3]}
         >
           ‹
         </button>
@@ -90,12 +85,8 @@ export default function ProductsSection() {
                   ))}
 
                   <div className="slideCta">
-                    <a className="btn btn--primary" href="/kontakt">
-                      Doporučení na míru
-                    </a>
-                    <a className="btn btn--ghost" href="/kontakt">
-                      Objednat se
-                    </a>
+                    <Link className="btn btn--primary" to={localizedPath(language, "/contact")}>{t.products[5]}</Link>
+                    <Link className="btn btn--ghost" to={localizedPath(language, "/contact")}>{t.products[6]}</Link>
                   </div>
                 </div>
               </article>
@@ -107,13 +98,13 @@ export default function ProductsSection() {
           className="sliderBtn"
           type="button"
           onClick={next}
-          aria-label="Další"
+          aria-label={t.products[4]}
         >
           ›
         </button>
       </div>
 
-      <div className="dots" role="tablist" aria-label="Produkty">
+      <div className="dots" role="tablist" aria-label={t.products[0]}>
         {slides.map((_, i) => (
           <button
             key={i}

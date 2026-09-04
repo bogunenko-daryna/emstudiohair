@@ -1,22 +1,21 @@
 import React from "react";
+import { copy, useLanguage } from "../i18n.jsx";
 
 export default function BookNowSection() {
+  const t = copy[useLanguage()].contact;
   return (
     <section className="bookNow">
       <div className="bookNow__header">
-        <div className="productsKicker">Contact</div>
-        <h2 className="bookNow__title">Objednání</h2>
-        <p className="bookNow__intro">
-          Termín domluvíme přes telefon nebo zprávou. Ráda poradím i s výběrem
-          péče na míru.
-        </p>
+        <div className="productsKicker">{t.kicker}</div>
+        <h2 className="bookNow__title">{t.booking}</h2>
+        <p className="bookNow__intro">{t.bookingIntro}</p>
       </div>
 
       <div className="bookNow__grid">
         {/* MAPA */}
         <div className="mapCard">
           <iframe
-            title="Mapa salonu"
+            title={t.mapTitle}
             src="https://www.google.com/maps?q=Bořivojova+718/84,+Praha+3&output=embed"
             loading="lazy"
           />
@@ -25,7 +24,7 @@ export default function BookNowSection() {
         {/* INFO */}
         <div className="bookNow__content">
           <div className="infoCard">
-            <div className="infoCard__label">Adresa</div>
+            <div className="infoCard__label">{t.address}</div>
             <div className="infoCard__value">
               Bořivojova 718/84
               <br />
@@ -34,10 +33,10 @@ export default function BookNowSection() {
           </div>
 
           <div className="infoCard">
-            <div className="infoCard__label">Telefon</div>
+            <div className="infoCard__label">{t.phone}</div>
             <div className="infoCard__value">
               <a href="tel:+420777774906">+420 777 774 906</a>
-              <div className="muted">Preferuji SMS / WhatsApp</div>
+              <div className="muted">{t.phoneNote}</div>
             </div>
           </div>
 
@@ -51,7 +50,7 @@ export default function BookNowSection() {
               >
                 @ester.studio.hair
               </a>
-              <div className="muted">Napište mi do DM</div>
+              <div className="muted">{t.dm}</div>
             </div>
           </div>
 
@@ -61,13 +60,13 @@ export default function BookNowSection() {
               <a href="mailto:mahurskaester@gmail.com">
                 mahurskaester@gmail.com
               </a>
-              <div className="muted">Odpovídám do 24 hodin</div>
+              <div className="muted">{t.response}</div>
             </div>
           </div>
 
           <div className="bookNow__cta">
             <a className="btn btn--primary" href="tel:+420777774906">
-              Zavolat
+              {t.call}
             </a>
             <a
               className="btn btn--ghost"
@@ -75,7 +74,7 @@ export default function BookNowSection() {
               target="_blank"
               rel="noreferrer"
             >
-              Napsat na Instagram
+              {t.instagram}
             </a>
           </div>
         </div>

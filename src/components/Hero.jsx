@@ -1,8 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import heroImg from "../images/hero.jpg";
+import { copy, localizedPath, useLanguage } from "../i18n.jsx";
 
 export default function Hero() {
+  const language = useLanguage();
+  const t = copy[language].hero;
   return (
     <section className="heroSplit  isImageRight">
       <div className="heroSplit__media">
@@ -11,19 +14,19 @@ export default function Hero() {
 
       <div className="heroSplit__copy">
         <blockquote className="heroSplit__quote">
-          “Vlasy nejsou detail. Jsou všechno.”
+          “{t[0]}”
         </blockquote>
 
         <div className="heroSplit__sub">
-          Luxusní, minimalistické hair studio • střih • barva • styling
+          {t[1]}
         </div>
 
         <div className="heroSplit__cta">
           <a className="btn btn--primary" href="tel:+420777774906">
-            Objednat se
+            {t[2]}
           </a>
-          <Link className="btn btn--ghost" to="/cenik">
-            Ceník
+          <Link className="btn btn--ghost" to={localizedPath(language, "/prices")}>
+            {t[3]}
           </Link>
         </div>
       </div>

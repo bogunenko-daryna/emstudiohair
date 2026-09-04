@@ -1,26 +1,23 @@
 import React from "react";
 
 import imgDiagnostics from "../images/diagnostika_v2.jpeg";
+import { copy, useLanguage } from "../i18n.jsx";
 
 export default function Footer() {
+  const t = copy[useLanguage()].diagnostics;
   return (
     <section className="diagnosticsSection">
       <div className="diagnosticsMedia">
-        <img src={imgDiagnostics} alt="Diagnostika pokožky hlavy kamerou" />
+        <img src={imgDiagnostics} alt={t[4]} />
       </div>
 
       <div className="diagnosticsContent">
-        <div className="diagnosticsBadge">TRICHOLOGIE</div>
+        <div className="diagnosticsBadge">{t[0]}</div>
 
-        <h2>Diagnostika pomocí kamery</h2>
+        <h2>{t[1]}</h2>
 
-        <p>
-          Kamera poskytuje dermoskopické snímky, díky kterým lze přesně
-          identifikovat problémy jako ucpání folikulů, podrážděnou pokožku či
-          usazeniny z tvrdé vody.
-        </p>
-
-        <p>Na základě snímků z kamery se navrhuje personalizované ošetření.</p>
+        <p>{t[2]}</p>
+        <p>{t[3]}</p>
       </div>
     </section>
   );
